@@ -68,14 +68,14 @@ class Comment(db.Model):
 # Forms
 
 class RegisterForm(FlaskForm):
-    email = StringField(label="Email", validators=[DataRequired(), validators.Length(max=35), validators.email()])
+    email = StringField(label="Email", validators=[DataRequired(), validators.Length(max=35)])
     password = PasswordField(label="Password", validators=[DataRequired(), validators.Length(min=8, max=35)])
     name = StringField(label="Name", validators=[DataRequired()])
     submit = SubmitField("Sign me up!")
 
 
 class LoginForm(FlaskForm):
-    email = StringField(label="Email", validators=[DataRequired(), validators.Length(max=35), validators.email()])
+    email = StringField(label="Email", validators=[DataRequired(), validators.Length(max=35)])
     password = PasswordField(label="Password", validators=[DataRequired(), validators.Length(min=8, max=35)])
     submit = SubmitField("Sign in")
 
@@ -248,4 +248,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
